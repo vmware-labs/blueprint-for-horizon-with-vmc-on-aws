@@ -30,8 +30,10 @@ Explanation can be found here: https://securefever.com/blog/terraform-blueprint-
 # Documentation
 
 First of all, all my test ran at a lab platform… Use following code at your own risk, I won't be responsible for any issues you may run into. Thanks!
+
 In this repository I created a automated Horizon Whitelist Firewall Ruleset, which can be used with
 Terraform and VMC on AWS.
+
 It only apply Horizon related Services, groups and Distributed Firewall Sections and Rules.
 
 This code should support you to build a whitelist Firewall Horizon Plattform or get a idea how you can secure your Horizon Environment.
