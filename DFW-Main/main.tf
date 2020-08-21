@@ -5,6 +5,52 @@ provider "nsxt" {
   enforcement_point    = "vmc-enforcementpoint"
 }
 
+###################### creating Network Segments ######################
+
+data "nsxt_policy_transport_zone" "TZ" {
+  display_name = "vmc-overlay-tz"
+}
+
+resource "nsxt_policy_segment" "ManagementHorizon" {
+  display_name        = "Horizon_MGMT"
+  description         = "Horizon_MGMT Segment provisioned by Terraform"
+  connectivity_path   = "/infra/tier-1s/cgw"
+  transport_zone_path = data.nsxt_policy_transport_zone.TZ.path
+  subnet {
+    cidr              = "172.16.199.1/24"
+    dhcp_ranges       = ["172.16.199.2-172.16.199.254"]
+  }
+}
+resource "nsxt_policy_segment" "UAG_external" {
+  display_name        = "Horizon_UAG_external"
+  description         = "Horizon_UAG_external Segment provisioned by Terraform"
+  connectivity_path   = "/infra/tier-1s/cgw"
+  transport_zone_path = data.nsxt_policy_transport_zone.TZ.path
+  subnet {
+    cidr              = "172.16.200.250/30"
+  }
+}
+resource "nsxt_policy_segment" "Windows_Desktops" {
+  display_name        = "Horizon_Windows_Desktops"
+  description         = "Horizon_Windows_Desktops Segment provisioned by Terraform"
+  connectivity_path   = "/infra/tier-1s/cgw"
+  transport_zone_path = data.nsxt_policy_transport_zone.TZ.path
+  subnet {
+    cidr              = "172.16.1.1/20"
+    dhcp_ranges       = ["172.16.1.2-172.16.15.254"]
+  }
+}
+resource "nsxt_policy_segment" "Linux_Desktops" {
+  display_name        = "Horizon_Linux_Desktops"
+  description         = "Horizon_Linux_Desktops Segment provisioned by Terraform"
+  connectivity_path   = "/infra/tier-1s/cgw"
+  transport_zone_path = data.nsxt_policy_transport_zone.TZ.path
+  subnet {
+    cidr              = "172.16.16.1/20"
+    dhcp_ranges       = ["172.16.16.2-172.16.31.254"]
+  }
+}
+
 ###################### creating all Services ######################
 
 // creating Services TCP 8443:

@@ -93,12 +93,10 @@ resource "nsxt_policy_gateway_policy" "cgw_policy" {
   domain       = "cgw"
     lifecycle {
       prevent_destroy = true
-    }
+    }/*
     rule {
         action                = "ALLOW"
-        destination_groups    = [
-          "/infra/domains/mgw/groups/VCENTER"
-        ]
+        destination_groups    = []
         destinations_excluded = false
         direction             = "IN_OUT"
         disabled              = false
@@ -112,7 +110,7 @@ resource "nsxt_policy_gateway_policy" "cgw_policy" {
         ]
         source_groups         = []
         sources_excluded      = false
-    }
+    }*/
     rule {
         action                = "DROP"
         destination_groups    = []
