@@ -5,12 +5,27 @@
 Explanation can be found here: https://securefever.com/blog/terraform-blueprint-for-a-horizon7-ruleset-with-vmc-on-aws
 
 # Try it out
+Greenfield!
+ 1. install Terraform
+ 2. clone repository
+ 3. go to Gateway-Main folder
+ 4. create a terraform.tfvars file for your secrets
+ 5. initialize Terraform
+ 6. terraform import cgw and mgw
+ 7. plan and/or apply
+ 8. go to folder DFW-Main
+ 9. copy terraform.tfvars
+10. terraform plan and apply
+11. fill all groups
 
-1. install Terraform
-2. clone repository
-3. create a terraform.tfvars file for your secrets
-4. initialize Terraform
-5. plan and/or apply
+Brownfield!
+ 1. install Terraform
+ 2. clone repository
+ 3. go to folder DFW-Main
+ 4. create a terraform.tfvars file for your secrets
+ 5. initialize Terraform
+ 6. plan and/or apply
+ 7. fill all groups
 
 # Prerequisites
 
@@ -55,7 +70,7 @@ The blueprint-for-horizon-with-vmc-on-aws project team welcomes contributions fr
 Blueprint for Horizon with VMC on AWS
 The BSD-2 license (the "License") set forth below applies to all parts of the Blueprint for Horizon with VMC on AWS project. You may not use this file except in compliance with the License.
 
-BSD-2 License 
+BSD-2 License
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
