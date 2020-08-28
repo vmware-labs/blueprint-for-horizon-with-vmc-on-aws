@@ -6,6 +6,7 @@ provider "nsxt" {
 }
 
 ###################### creating Network Segments ######################
+###################### can be outcommented "/* */" or edited ######################
 
 data "nsxt_policy_transport_zone" "TZ" {
   display_name = "vmc-overlay-tz"
