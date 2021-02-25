@@ -1,8 +1,14 @@
+terraform {
+  required_providers {
+    nsxt = {
+      source = "vmware/nsxt"
+      version = "3.1.1"
+    }
+  }
+}
+
 provider "nsxt" {
-  host                 = var.host
-  vmc_token            = var.vmc_token
-  allow_unverified_ssl = true
-  enforcement_point    = "vmc-enforcementpoint"
+  # Configuration options
 }
 
 ###################### creating Network Segments ######################
@@ -482,28 +488,28 @@ resource "nsxt_policy_security_policy" "UAG_external" {
 
   rule {
     display_name       = "UAG_external_Clients_Inbound"
-    source_groups      = ["${nsxt_policy_group.RFC_1918.path}"]
+    source_groups      = ["nsxt_policy_group.RFC_1918.path"]
     sources_excluded   = true
-    destination_groups = ["${nsxt_policy_group.UAG_external.path}"]
+    destination_groups = ["nsxt_policy_group.UAG_external.path"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}", "${nsxt_policy_service.Blast_TCP8443.path}", "${nsxt_policy_service.Blast_UDP443.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
+    services           = ["nsxt_policy_service.Blast_TCP443.path", "nsxt_policy_service.Blast_TCP8443.path", "nsxt_policy_service.Blast_UDP443.path", "nsxt_policy_service.PCoIP_TCP4172.path", "nsxt_policy_service.PCoIP_UDP4172.path"]
     logged             = true
     }
 
    rule {
       display_name       = "UAG_external_VDI_Clients_Outbound"
-      source_groups      = ["${nsxt_policy_group.UAG_external.path}"]
-      destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
+      source_groups      = ["nsxt_policy_group.UAG_external.path"]
+      destination_groups = ["nsxt_policy_group.VDI_Clients.path"]
       action             = "ALLOW"
-      services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "${nsxt_policy_service.RDP_TCP3389.path}", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
+      services           = ["nsxt_policy_service.Blast_TCP22443.path", "nsxt_policy_service.RDP_TCP3389.path", "nsxt_policy_service.CDR_MMR_TCP9427.path", "nsxt_policy_service.USB_TCP32111.path", "nsxt_policy_service.PCoIP_TCP4172.path", "nsxt_policy_service.PCoIP_UDP4172.path"]
       logged             = true
     }
     rule {
        display_name       = "UAG_external_ConnectionServer_Outbound"
-       source_groups      = ["${nsxt_policy_group.UAG_external.path}"]
-       destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
+       source_groups      = ["nsxt_policy_group.UAG_external.path"]
+       destination_groups = ["nsxt_policy_group.ConnectionServer.path"]
        action             = "ALLOW"
-       services           = ["${nsxt_policy_service.Blast_TCP443.path}",  "${nsxt_policy_service.Blast_TCP8443.path}"]
+       services           = ["nsxt_policy_service.Blast_TCP443.path",  "nsxt_policy_service.Blast_TCP8443.path"]
        logged             = true
      }
 
