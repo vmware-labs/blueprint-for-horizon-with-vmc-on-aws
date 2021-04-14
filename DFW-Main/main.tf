@@ -197,6 +197,19 @@ resource "nsxt_policy_service" "EventDB_TCP1433" {
   }
 }
 
+// creating Services SSL_TCP22:
+resource "nsxt_policy_service" "SSL_TCP22" {
+  description  = "USB service provisioned by Terraform"
+  display_name = "EventDB_TCP22"
+
+  l4_port_set_entry {
+    display_name      = "TCP22"
+    description       = "TCP port 22 entry"
+    protocol          = "TCP"
+    destination_ports = ["22"]
+  }
+}
+
 // creating Services TCP 3091:
 resource "nsxt_policy_service" "vROPS_TCP3091" {
   description  = "vROPS service provisioned by Terraform"
@@ -811,7 +824,7 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.Workspace1_Access.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "/infra/services/HTTPS", "/infra/services/SSL"]
+    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "/infra/services/HTTPS", "${nsxt_policy_service.SSL_TCP22.path}"]
     logged             = true
   }
   rule {
@@ -819,7 +832,7 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.Workspace1_Connector.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "/infra/services/SSL"]
+    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "${nsxt_policy_service.SSL_TCP22.path}"]
     logged             = true
   }
   rule {

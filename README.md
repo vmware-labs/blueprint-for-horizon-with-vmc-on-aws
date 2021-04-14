@@ -62,6 +62,13 @@ I will keep on working on this script and add new services, rules and groups.
 
 if you have any problems with the script, you always can reach out to me and I will try to support and help you as soon as possible!
 
+# Changelog
+
+2021-04-14
+Removed legacy ports
+cosmentic changes
+
+
 # Contributing
 The blueprint-for-horizon-with-vmc-on-aws project team welcomes contributions from the community. Before you start working with blueprint-for-horizon-with-vmc-on-aws, please read our Developer Certificate of Origin. All contributions to this repository must be signed as described on that page. Your signature certifies that you wrote the patch or have the right to pass it on as an open-source patch. For more detailed information, refer to CONTRIBUTING.md.
 
