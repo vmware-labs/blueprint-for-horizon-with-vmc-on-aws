@@ -57,7 +57,7 @@ resource "nsxt_policy_segment" "Linux_Desktops" {
 // creating Services TCP 8443:
 resource "nsxt_policy_service" "Blast_TCP8443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast TCP8443"
+  display_name = "Blast_TCP8443"
 
   l4_port_set_entry {
     display_name      = "TCP8443"
@@ -70,7 +70,7 @@ resource "nsxt_policy_service" "Blast_TCP8443" {
 // creating Services UDP 8443:
 resource "nsxt_policy_service" "Blast_UDP8443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast UDP8443"
+  display_name = "Blast_UDP8443"
 
   l4_port_set_entry {
     display_name      = "UDP8443"
@@ -83,7 +83,7 @@ resource "nsxt_policy_service" "Blast_UDP8443" {
 // creating Services TCP 9443:
 resource "nsxt_policy_service" "Blast_TCP9443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast TCP9443"
+  display_name = "Blast_TCP9443"
 
   l4_port_set_entry {
     display_name      = "TCP9443"
@@ -96,7 +96,7 @@ resource "nsxt_policy_service" "Blast_TCP9443" {
 // creating Services TCP 22443:
 resource "nsxt_policy_service" "Blast_TCP22443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast TCP22443"
+  display_name = "Blast_TCP22443"
 
   l4_port_set_entry {
     display_name      = "TCP22443"
@@ -109,7 +109,7 @@ resource "nsxt_policy_service" "Blast_TCP22443" {
 // creating Services UDP 22443:
 resource "nsxt_policy_service" "Blast_UDP22443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast UDP22443"
+  display_name = "Blast_UDP22443"
 
   l4_port_set_entry {
     display_name      = "UDP22443"
@@ -122,7 +122,7 @@ resource "nsxt_policy_service" "Blast_UDP22443" {
 // creating Services TCP 4172:
 resource "nsxt_policy_service" "PCoIP_TCP4172" {
   description  = "PCoIP service provisioned by Terraform"
-  display_name = "PCoIP TCP4172"
+  display_name = "PCoIP_TCP4172"
 
   l4_port_set_entry {
     display_name      = "TCP4172"
@@ -135,7 +135,7 @@ resource "nsxt_policy_service" "PCoIP_TCP4172" {
 // creating Services UDP 4172:
 resource "nsxt_policy_service" "PCoIP_UDP4172" {
   description  = "PCoIP service provisioned by Terraform"
-  display_name = "PCoIP UDP4172"
+  display_name = "PCoIP_UDP4172"
 
   l4_port_set_entry {
     display_name      = "UDP4172"
@@ -148,33 +148,20 @@ resource "nsxt_policy_service" "PCoIP_UDP4172" {
 // creating Services UDP 443:
 resource "nsxt_policy_service" "Blast_UDP443" {
   description  = "Blast service provisioned by Terraform"
-  display_name = "Blast UDP443"
+  display_name = "Blast_UDP443"
 
   l4_port_set_entry {
-    display_name      = "UDP433"
+    display_name      = "UDP443"
     description       = "UDP port 433 entry"
     protocol          = "UDP"
-    destination_ports = ["433"]
-  }
-}
-
-// creating Services TCP 443:
-resource "nsxt_policy_service" "Blast_TCP443" {
-  description  = "Blast service provisioned by Terraform"
-  display_name = "Blast TCP443"
-
-  l4_port_set_entry {
-    display_name      = "TCP433"
-    description       = "TCP port 433 entry"
-    protocol          = "TCP"
-    destination_ports = ["433"]
+    destination_ports = ["443"]
   }
 }
 
 // creating Services TCP 9427:
 resource "nsxt_policy_service" "CDR_MMR_TCP9427" {
   description  = "CDR/MMR service provisioned by Terraform"
-  display_name = "CDR/MMR TCP9427"
+  display_name = "CDR/MMR_TCP9427"
 
   l4_port_set_entry {
     display_name      = "TCP9427"
@@ -184,23 +171,10 @@ resource "nsxt_policy_service" "CDR_MMR_TCP9427" {
   }
 }
 
-// creating Services TCP 3389:
-resource "nsxt_policy_service" "RDP_TCP3389" {
-  description  = "RDP service provisioned by Terraform"
-  display_name = "RDP TCP3389"
-
-  l4_port_set_entry {
-    display_name      = "TCP3389"
-    description       = "TCP port 8443 entry"
-    protocol          = "TCP"
-    destination_ports = ["3389"]
-  }
-}
-
 // creating Services TCP 32111:
 resource "nsxt_policy_service" "USB_TCP32111" {
   description  = "USB service provisioned by Terraform"
-  display_name = "USB TCP3389"
+  display_name = "USB_TCP32111"
 
   l4_port_set_entry {
     display_name      = "TCP32111"
@@ -271,19 +245,6 @@ resource "nsxt_policy_service" "vROPS_TCP3100" {
     description       = "TCP port 3100 entry"
     protocol          = "TCP"
     destination_ports = ["3100"]
-  }
-}
-
-// creating Services TCP 389:
-resource "nsxt_policy_service" "ldap_TCP389" {
-  description  = "ldap service provisioned by Terraform"
-  display_name = "ldap_TCP389"
-
-  l4_port_set_entry {
-    display_name      = "TCP389"
-    description       = "TCP port 389 entry"
-    protocol          = "TCP"
-    destination_ports = ["389"]
   }
 }
 
@@ -364,6 +325,96 @@ resource "nsxt_policy_service" "TCP11002" {
     destination_ports = ["11002"]
   }
 }
+// creating Services replica_TCP135:
+resource "nsxt_policy_service" "replica_TCP135" {
+  description  = "service provisioned by Terraform"
+  display_name = "replica_135"
+
+  l4_port_set_entry {
+    display_name      = "TCP135"
+    description       = "TCP port 135 entry"
+    protocol          = "TCP"
+    destination_ports = ["135"]
+  }
+}
+
+// creating Services JMS_TCP4100:
+resource "nsxt_policy_service" "JMS_TCP4100" {
+  description  = "service provisioned by Terraform"
+  display_name = "JMS_TCP4100"
+
+  l4_port_set_entry {
+    display_name      = "JMS_TCP4100"
+    description       = "TCP port 4100 entry"
+    protocol          = "TCP"
+    destination_ports = ["4100"]
+  }
+}
+
+// creating Services RSA_SecureID_UDP5500:
+resource "nsxt_policy_service" "RSA_SecureID_UDP5500" {
+  description  = "service provisioned by Terraform"
+  display_name = "RSA_SecureID_UDP5500"
+
+  l4_port_set_entry {
+    display_name      = "RSA_SecureID_UDP5500"
+    description       = "UDP port 5500 entry"
+    protocol          = "UDP"
+    destination_ports = ["5500"]
+  }
+}
+
+// creating Services iOS_UDP88:
+resource "nsxt_policy_service" "iOS_UDP88" {
+  description  = "service provisioned by Terraform"
+  display_name = "iOS_UDP88"
+
+  l4_port_set_entry {
+    display_name      = "iOS_UDP88"
+    description       = "UDP port 88 entry"
+    protocol          = "UDP"
+    destination_ports = ["88"]
+  }
+}
+
+// creating Services iOS_TCP88:
+resource "nsxt_policy_service" "iOS_TCP88" {
+  description  = "service provisioned by Terraform"
+  display_name = "iOS_TCP88"
+
+  l4_port_set_entry {
+    display_name      = "iOS_TCP88"
+    description       = "TCP port 88 entry"
+    protocol          = "TCP"
+    destination_ports = ["88"]
+  }
+}
+
+// creating Services Android_TCP5262:
+resource "nsxt_policy_service" "Android_TCP5262" {
+  description  = "service provisioned by Terraform"
+  display_name = "Android_TCP5262"
+
+  l4_port_set_entry {
+    display_name      = "Android_TCP5262"
+    description       = "TCP port 5262 entry"
+    protocol          = "TCP"
+    destination_ports = ["5262"]
+  }
+}
+
+// creating Services SSL_cert_TCP7443:
+resource "nsxt_policy_service" "SSL_cert_TCP7443" {
+  description  = "service provisioned by Terraform"
+  display_name = "SSL_cert_TCP7443"
+
+  l4_port_set_entry {
+    display_name      = "SSL_cert_TCP7443"
+    description       = "TCP port 7443 entry"
+    protocol          = "TCP"
+    destination_ports = ["7443"]
+  }
+}
 
 ###################### creating all Groups ######################
 
@@ -392,6 +443,13 @@ resource "nsxt_policy_group" "ConnectionServer" {
 resource "nsxt_policy_group" "VDI_Clients" {
   display_name = "VDI_Clients"
   description  = "Created from Terraform VDI_Clients"
+  domain       = "cgw"
+}
+
+// creating Group for RADIUS:
+resource "nsxt_policy_group" "RADIUS" {
+  display_name = "RADIUS"
+  description  = "Created from Terraform RADIUS"
   domain       = "cgw"
 }
 
@@ -436,7 +494,7 @@ resource "nsxt_policy_group" "Workspace1_Access" {
   domain       = "cgw"
 }
 
-// creating Group for Horizon Cloud Connector:
+// creating Group for Horizon Cloud_Connector:
 resource "nsxt_policy_group" "Horizon_Cloud_Connector" {
   display_name = "Horizon_Cloud_Connector"
   description  = "Created from Terraform Horizon_Cloud_Connector"
@@ -470,8 +528,69 @@ resource "nsxt_policy_group" "RFC_1918" {
   }
 }
 
-###################### creating DFW Security Rules ######################
+// creating Group for DNS_Server:
+resource "nsxt_policy_group" "DNS_Server" {
+  display_name = "DNS_Server"
+  description  = "Created from Terraform DNS_Server"
+  domain       = "cgw"
+}
 
+// creating Group for Domain_Controller:
+resource "nsxt_policy_group" "Domain_Controller" {
+  display_name = "Domain_Controller"
+  description  = "Created from Terraform Domain_Controller"
+  domain       = "cgw"
+}
+// creating Group for RSA_SecureID_Server:
+resource "nsxt_policy_group" "RSA_SecureID_Server" {
+  display_name = "RSA_SecureID_Server"
+  description  = "Created from Terraform RSA_SecureID_Server"
+  domain       = "cgw"
+}
+
+// creating Group for AD_cert:
+resource "nsxt_policy_group" "AD_cert" {
+  display_name = "AD_cert"
+  description  = "Created from Terraform AD_cert"
+  domain       = "cgw"
+}
+
+// creating Group for AppVol_SQLt:
+resource "nsxt_policy_group" "AppVol_SQL" {
+  display_name = "AppVol_SQL"
+  description  = "Created from Terraform AppVol_SQL"
+  domain       = "cgw"
+}
+
+
+###################### creating DFW Security Rules ######################
+###################### creating Ruleset Infrastructure ######################
+###################### creating Ruleset for Unified Access Gateway internal ######################
+resource "nsxt_policy_security_policy" "DNS" {
+  domain       = "cgw"
+  display_name = "DNS"
+  description  = "Terraform DNS Ruleset"
+  category     = "Infrastructure"
+
+  rule {
+    display_name       = "DNS Service"
+    source_groups      = ["${nsxt_policy_group.RFC_1918.path}"]
+    destination_groups = ["${nsxt_policy_group.DNS_Server.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/DNS"]
+    logged             = true
+  }
+    rule {
+    display_name       = "DNS Service"
+    source_groups      = ["${nsxt_policy_group.DNS_Server.path}"]
+    destination_groups = ["${nsxt_policy_group.RFC_1918.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/DNS"]
+    logged             = true
+  }
+}
+
+###################### creating Ruleset Environment ######################
 ###################### creating Ruleset for Unified Access Gateway external ######################
 
 resource "nsxt_policy_security_policy" "UAG_external" {
@@ -486,7 +605,7 @@ resource "nsxt_policy_security_policy" "UAG_external" {
     sources_excluded   = true
     destination_groups = [nsxt_policy_group.UAG_external.path]
     action             = "ALLOW"
-    services           = [nsxt_policy_service.Blast_TCP443.path, nsxt_policy_service.Blast_TCP8443.path, nsxt_policy_service.Blast_UDP443.path, nsxt_policy_service.PCoIP_TCP4172.path, nsxt_policy_service.PCoIP_UDP4172.path]
+    services           = ["/infra/services/HTTPS", nsxt_policy_service.Blast_TCP8443.path, nsxt_policy_service.Blast_UDP443.path, nsxt_policy_service.PCoIP_TCP4172.path, nsxt_policy_service.PCoIP_UDP4172.path]
     logged             = true
     }
 
@@ -495,7 +614,7 @@ resource "nsxt_policy_security_policy" "UAG_external" {
       source_groups      = [nsxt_policy_group.UAG_external.path]
       destination_groups = [nsxt_policy_group.VDI_Clients.path]
       action             = "ALLOW"
-      services           = [nsxt_policy_service.Blast_TCP22443.path, nsxt_policy_service.RDP_TCP3389.path, nsxt_policy_service.CDR_MMR_TCP9427.path, nsxt_policy_service.USB_TCP32111.path, nsxt_policy_service.PCoIP_TCP4172.path, nsxt_policy_service.PCoIP_UDP4172.path]
+      services           = [nsxt_policy_service.Blast_TCP22443.path, "/infra/services/RDP", nsxt_policy_service.CDR_MMR_TCP9427.path, nsxt_policy_service.USB_TCP32111.path, nsxt_policy_service.PCoIP_TCP4172.path, nsxt_policy_service.PCoIP_UDP4172.path]
       logged             = true
     }
     rule {
@@ -503,11 +622,19 @@ resource "nsxt_policy_security_policy" "UAG_external" {
        source_groups      = [nsxt_policy_group.UAG_external.path]
        destination_groups = [nsxt_policy_group.ConnectionServer.path]
        action             = "ALLOW"
-       services           = [nsxt_policy_service.Blast_TCP443.path,  nsxt_policy_service.Blast_TCP8443.path]
+       services           = ["/infra/services/HTTPS"]
        logged             = true
      }
-
+    rule {
+       display_name       = "UAG_external_RADIUS_Outbound"
+       source_groups      = [nsxt_policy_group.UAG_external.path]
+       destination_groups = [nsxt_policy_group.RADIUS.path]
+       action             = "ALLOW"
+       services           = [nsxt_policy_service.RSA_SecureID_UDP5500.path]
+       logged             = true
+     }
 }
+
 
 ###################### creating Ruleset for Unified Access Gateway internal ######################
 
@@ -520,9 +647,9 @@ resource "nsxt_policy_security_policy" "UAG_internal" {
   rule {
     display_name       = "UAG_internal_Clients_Inbound"
     source_groups      = ["${nsxt_policy_group.RFC_1918.path}"]
-    destination_groups = ["${nsxt_policy_group.UAG_external.path}"]
+    destination_groups = ["${nsxt_policy_group.UAG_internal.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}", "${nsxt_policy_service.Blast_TCP8443.path}", "${nsxt_policy_service.Blast_UDP443.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
+    services           = ["/infra/services/HTTPS", "${nsxt_policy_service.Blast_TCP8443.path}", "${nsxt_policy_service.Blast_UDP443.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
     logged             = true
   }
 
@@ -531,7 +658,7 @@ resource "nsxt_policy_security_policy" "UAG_internal" {
     source_groups      = ["${nsxt_policy_group.UAG_internal.path}"]
     destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "${nsxt_policy_service.RDP_TCP3389.path}", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
+    services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "/infra/services/RDP", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
     logged             = true
   }
 
@@ -540,10 +667,17 @@ resource "nsxt_policy_security_policy" "UAG_internal" {
      source_groups      = ["${nsxt_policy_group.UAG_internal.path}"]
      destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
      action             = "ALLOW"
-     services           = ["${nsxt_policy_service.Blast_TCP443.path}", "${nsxt_policy_service.Blast_TCP8443.path}"]
+     services           = ["/infra/services/HTTPS"]
      logged             = true
-   }
-
+  }
+   rule {
+       display_name       = "UAG_internal_RADIUS_Outbound"
+       source_groups      = [nsxt_policy_group.UAG_internal.path]
+       destination_groups = [nsxt_policy_group.RADIUS.path]
+       action             = "ALLOW"
+       services           = [nsxt_policy_service.RSA_SecureID_UDP5500.path]
+       logged             = true
+  }
 }
 
 ###################### creating Ruleset for Internal Connections without internal UAGs ######################
@@ -559,7 +693,7 @@ resource "nsxt_policy_security_policy" "Internal_Client_Connection" {
     source_groups      = ["${nsxt_policy_group.RFC_1918.path}"]
     destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.RDP_TCP3389.path}", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}", "${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/RDP", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}", "/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -567,10 +701,25 @@ resource "nsxt_policy_security_policy" "Internal_Client_Connection" {
     source_groups       = ["${nsxt_policy_group.RFC_1918.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS", "${nsxt_policy_service.Blast_TCP8443.path}"]
     logged             = true
   }
-
+  rule {
+    display_name       = "Internal_Client_Workspace_1_Access_Outbound"
+    source_groups       = ["${nsxt_policy_group.RFC_1918.path}"]
+    destination_groups = ["${nsxt_policy_group.Workspace1_Access.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/HTTPS", "${nsxt_policy_service.Blast_TCP8443.path}", "${nsxt_policy_service.iOS_TCP88.path}", "${nsxt_policy_service.iOS_UDP88.path}", "${nsxt_policy_service.Android_TCP5262.path}", "${nsxt_policy_service.SSL_cert_TCP7443.path}"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Internal_Client_Workspace_1_Connector_Outbound"
+    source_groups       = ["${nsxt_policy_group.RFC_1918.path}"]
+    destination_groups = ["${nsxt_policy_group.Workspace1_Connector.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/HTTPS"]
+    logged             = true
+  }
 }
 
 ###################### creating Ruleset for Horizon Connection Server ######################
@@ -586,7 +735,7 @@ resource "nsxt_policy_security_policy" "Horizon_Connection_Server" {
     source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.ADLDS_TCP22389.path}", "${nsxt_policy_service.ADLDS_TCP22636.path}", "${nsxt_policy_service.VIPA_TCP8472.path}"]
+    services           = ["/infra/services/LDAP", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.replica_TCP135.path}", "${nsxt_policy_service.JMS_TCP4100.path}", "${nsxt_policy_service.JMS_SSL_TCP4101.path}", "${nsxt_policy_service.ADLDS_TCP22389.path}", "${nsxt_policy_service.ADLDS_TCP22636.path}", "${nsxt_policy_service.VIPA_TCP8472.path}"]
     logged             = true
   }
   rule {
@@ -602,50 +751,17 @@ resource "nsxt_policy_security_policy" "Horizon_Connection_Server" {
     source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
     destination_groups = ["/infra/domains/mgw/groups/VCENTER"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
-    display_name       = "Horizon_Connection_Server_AppVol_Outbound"
-    source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
-    destination_groups = ["${nsxt_policy_group.AppVol_MGMT.path}"]
-    action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
-    logged             = true
-  }
-  rule {
-    display_name       = "Horizon_Connection_Server_Tunneled_Connection_Outbound"
+    display_name       = "Horizon_Connection_Server_VDI_Clients"
     source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
     destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "${nsxt_policy_service.RDP_TCP3389.path}", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
+    services           = ["${nsxt_policy_service.Blast_TCP22443.path}", "/infra/services/RDP", "${nsxt_policy_service.CDR_MMR_TCP9427.path}", "${nsxt_policy_service.USB_TCP32111.path}", "${nsxt_policy_service.PCoIP_TCP4172.path}", "${nsxt_policy_service.PCoIP_UDP4172.path}"]
     logged             = true
   }
-  rule {
-    display_name       = "ConnectionServer_UAG_external_Outbound"
-    source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
-    destination_groups = ["${nsxt_policy_group.UAG_external.path}"]
-    action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP9443.path}"]
-    logged             = true
-  }
-  rule {
-    display_name       = "ConnectionServer_UAG_internal_Outbound"
-    source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
-    destination_groups = ["${nsxt_policy_group.UAG_internal.path}"]
-    action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP9443.path}"]
-    logged             = true
-  }
-  rule {
-    display_name       = "ConnectionServer_JMP_Server_Outbound"
-    source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
-    destination_groups = ["${nsxt_policy_group.JMP_Server.path}"]
-    action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
-    logged             = true
-  }
-
   rule {
     display_name       = "Horizon_Connection_Server_Enrollment_Server_Outbound"
     source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
@@ -654,12 +770,13 @@ resource "nsxt_policy_security_policy" "Horizon_Connection_Server" {
     services           = ["${nsxt_policy_service.USB_TCP32111.path}"]
     logged             = true
   }
+
   rule {
-    display_name       = "Horizon_Connection_Server_vROPS_Outbound"
+    display_name       = "Horizon_Connection_Server_RSA_SecurID"
     source_groups      = ["${nsxt_policy_group.ConnectionServer.path}"]
-    destination_groups = ["${nsxt_policy_group.vROPS.path}"]
+    destination_groups = ["${nsxt_policy_group.RSA_SecureID_Server.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.vROPS_TCP3091.path}", "${nsxt_policy_service.vROPS_TCP3101.path}", "${nsxt_policy_service.vROPS_TCP3100.path}"]
+    services           = ["${nsxt_policy_service.RSA_SecureID_UDP5500.path}"]
     logged             = true
   }
 }
@@ -694,7 +811,15 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.Workspace1_Access.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP8443.path}"]
+    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "/infra/services/HTTPS", "/infra/services/SSL"]
+    logged             = true
+  }
+  rule {
+    display_name       = "ADMIN_Workspace1_Access_Outbound"
+    source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
+    destination_groups = ["${nsxt_policy_group.Workspace1_Connector.path}"]
+    action             = "ALLOW"
+    services           = ["${nsxt_policy_service.Blast_TCP8443.path}", "/infra/services/SSL"]
     logged             = true
   }
   rule {
@@ -702,7 +827,23 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Admin_Horizon_Connection_Server_Outbound"
+    source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
+    destination_groups = ["/infra/domains/mgw/groups/VCENTER"]
+    action             = "ALLOW"
+    services           = ["/infra/services/HTTPS"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Admin_Microsoft_Remote_Controle"
+    source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
+    destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/RDP"]
     logged             = true
   }
   rule {
@@ -710,7 +851,7 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.AppVol_MGMT.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -718,7 +859,7 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.vROPS.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -726,7 +867,7 @@ resource "nsxt_policy_security_policy" "Admin_Access" {
     source_groups      = ["${nsxt_policy_group.Admin_VMs.path}"]
     destination_groups = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
 }
@@ -744,7 +885,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
     source_groups      = ["${nsxt_policy_group.VDI_Clients.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.ldap_TCP389.path}", "${nsxt_policy_service.JMS_SSL_TCP4002.path}"]
+    services           = ["/infra/services/LDAP","/infra/services/LDAP-over-SSL", "${nsxt_policy_service.JMS_SSL_TCP4002.path}"]
     logged             = true
   }
   rule {
@@ -752,7 +893,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
     source_groups      = ["${nsxt_policy_group.VDI_Clients.path}"]
     destination_groups = ["${nsxt_policy_group.AppVol_MGMT.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -764,7 +905,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
     logged             = true
   }
   rule {
-    display_name       = "VDI_Clients_Horizon_Cloud_Connector_Outbound"
+    display_name       = "VDI_Clients_Horizon_Cloud_Connector_Inbound"
     source_groups      = ["${nsxt_policy_group.VDI_Clients.path}"]
     destination_groups = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
     action             = "ALLOW"
@@ -772,6 +913,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
     logged             = true
   }
 }
+/*
   ###################### creating Ruleset for Workspace1_Connector ######################
 
   resource "nsxt_policy_security_policy" "Workspace1_Connector" {
@@ -785,7 +927,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
       source_groups      = ["${nsxt_policy_group.Workspace1_Connector.path}"]
       destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
       action             = "ALLOW"
-      services           = ["${nsxt_policy_service.Blast_TCP443.path}", "${nsxt_policy_service.ldap_TCP389.path}"]
+      services           = ["/infra/services/HTTPS", "/infra/services/LDAP", "/infra/services/LDAP-over-SSL"]
       logged             = true
     }
     rule {
@@ -793,7 +935,7 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
       source_groups      = ["${nsxt_policy_group.Workspace1_Connector.path}"]
       destination_groups = ["${nsxt_policy_group.Workspace1_Access.path}"]
       action             = "ALLOW"
-      services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+      services           = ["/infra/services/HTTPS"]
       logged             = true
     }
 }
@@ -811,10 +953,12 @@ resource "nsxt_policy_security_policy" "Workspace1_Access" {
     source_groups      = []
     destination_groups = ["${nsxt_policy_group.Workspace1_Access.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
 }
+
+*/
 ###################### creating Ruleset for JMP_Server ######################
 
 resource "nsxt_policy_security_policy" "JMP_Server" {
@@ -828,7 +972,7 @@ resource "nsxt_policy_security_policy" "JMP_Server" {
     source_groups      = ["${nsxt_policy_group.JMP_Server.path}"]
     destination_groups = ["${nsxt_policy_group.AppVol_MGMT.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -836,7 +980,7 @@ resource "nsxt_policy_security_policy" "JMP_Server" {
     source_groups      = ["${nsxt_policy_group.JMP_Server.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
 }
@@ -854,7 +998,7 @@ resource "nsxt_policy_security_policy" "AppVolumes" {
     source_groups      = ["${nsxt_policy_group.AppVol_MGMT.path}"]
     destination_groups = ["/infra/domains/mgw/groups/VCENTER"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
     logged             = true
   }
   rule {
@@ -862,7 +1006,23 @@ resource "nsxt_policy_security_policy" "AppVolumes" {
     source_groups      = ["${nsxt_policy_group.AppVol_MGMT.path}"]
     destination_groups = ["/infra/domains/mgw/groups/ESXI"]
     action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
+    services           = ["/infra/services/HTTPS"]
+    logged             = true
+  }
+    rule {
+    display_name       = "AppVol_Domain_Controller_Outbound"
+    source_groups      = ["${nsxt_policy_group.AppVol_MGMT.path}"]
+    destination_groups = ["${nsxt_policy_group.Domain_Controller.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/LDAP", "/infra/services/LDAP-over-SSL"]
+    logged             = true
+  }
+    rule {
+    display_name       = "AppVol_ESXi_Outbound"
+    source_groups      = ["${nsxt_policy_group.AppVol_MGMT.path}"]
+    destination_groups = ["${nsxt_policy_group.AppVol_SQL.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/MS-SQL-S"]
     logged             = true
   }
 }
@@ -875,21 +1035,55 @@ resource "nsxt_policy_security_policy" "Horizon_Cloud_Connector" {
   description  = "Terraform Horizon_Cloud_Connector Ruleset"
   category     = "Environment"
   rule {
-    display_name       = "AppVol_ConnectionServer_Outbound"
+    display_name       = "Cloud_Connector_ConnectionServer_Outbound"
     source_groups      = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
     destination_groups = ["${nsxt_policy_group.ConnectionServer.path}"]
+    action             = "ALLOW"
+    services           = ["/infra/services/HTTPS", "${nsxt_policy_service.JMS_SSL_TCP4002.path}"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Cloudconnector_internet"
+    source_groups      = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
+    destination_groups = []
+    action             = "ALLOW"
+    services           = ["/infra/services/HTTPS"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Cloudconnector_Clients_Inbound"
+    source_groups      = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
+    destination_groups = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
+    destinations_excluded = true
+    action             = "ALLOW"
+    services           = ["/infra/services/SSH"]
+    logged             = true
+  }
+
+}
+
+###################### creating Ruleset for Enrollment_Server ######################
+
+resource "nsxt_policy_security_policy" "Enrollment_Server" {
+  domain       = "cgw"
+  display_name = "Enrollment_Server"
+  description  = "Terraform Enrollment_Server Ruleset"
+  category     = "Environment"
+
+  rule {
+    display_name       = "Enrollment_Server_AD_Cert_Outbound"
+    source_groups      = ["${nsxt_policy_group.Enrollment_Server.path}"]
+    destination_groups = ["${nsxt_policy_group.AD_cert.path}"]
+    action             = "ALLOW"
+    services           = ["${nsxt_policy_service.replica_TCP135.path}"]
+    logged             = true
+  }
+  rule {
+    display_name       = "Enrollment_Server_Domain_Controller_Outbound"
+    source_groups      = ["${nsxt_policy_group.Enrollment_Server.path}"]
+    destination_groups = ["${nsxt_policy_group.Domain_Controller.path}"]
     action             = "ALLOW"
     services           = []
     logged             = true
   }
-  rule {
-    display_name       = "AppVol_Clients_Outbound"
-    source_groups      = ["${nsxt_policy_group.VDI_Clients.path}"]
-    destination_groups = ["${nsxt_policy_group.Horizon_Cloud_Connector.path}"]
-    destinations_excluded = true
-    action             = "ALLOW"
-    services           = ["${nsxt_policy_service.Blast_TCP443.path}"]
-    logged             = true
-  }
 }
-
