@@ -734,7 +734,7 @@ resource "nsxt_policy_group" "Internet_Proxy" {
 
 ###################### creating DFW Security Rules ######################
 ###################### creating Ruleset Infrastructure ######################
-###################### creating Ruleset for Unified Access Gateway internal ######################
+###################### creating Rules for DNS ######################
 resource "nsxt_policy_security_policy" "DNS" {
   domain       = "cgw"
   display_name = "DNS Service"
@@ -758,6 +758,9 @@ resource "nsxt_policy_security_policy" "DNS" {
     logged             = true
   }
 }
+
+###################### creating Rules for NTP ######################
+
 resource "nsxt_policy_security_policy" "NTP" {
   domain       = "cgw"
   display_name = "NTP Service"
@@ -1102,7 +1105,16 @@ resource "nsxt_policy_security_policy" "Horizon_VDI_Clients" {
     action             = "ALLOW"
     services           = ["${nsxt_policy_service.TCP11002.path}"]
     logged             = true
-  }
+  }/*
+  rule {
+    display_name       = "VDI_Clients_VDI_Client"
+    source_groups      = ["${nsxt_policy_group.VDI_Clients.path}"]
+    destination_groups = ["${nsxt_policy_group.VDI_Clients.path}"]
+    action             = "DENY"
+    services           = []
+    logged             = true
+  }*/
+
 }
 
   ###################### creating Ruleset for Workspace1_Connector ######################
