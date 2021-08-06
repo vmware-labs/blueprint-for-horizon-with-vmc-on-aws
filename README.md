@@ -35,6 +35,7 @@ First of all, all my test ran at a lab platform… Use following code at your ow
 
 In this repository I created a automated Horizon Whitelist Firewall Ruleset, which can be used with
 Terraform and VMC on AWS.
+
 With some small changes it should work also for a normal onprem NSX-T deployment. If you have questions about this, please let me know!
 
 It only apply Horizon related Services, groups and Distributed Firewall Sections and Rules.
