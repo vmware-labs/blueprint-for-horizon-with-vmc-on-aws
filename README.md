@@ -8,30 +8,17 @@ Explanation can be found here: https://securefever.com/blog/terraform-blueprint-
 Greenfield!
  1. install Terraform
  2. clone repository
- 3. go to Gateway-Main folder
- 4. create a terraform.tfvars file for your secrets
- 5. initialize Terraform
- 6. terraform import cgw and mgw
- 7. plan and/or apply
- 8. go to folder DFW-Main
- 9. copy terraform.tfvars
-10. terraform plan and apply
-11. fill all groups
-
-Brownfield!
- 1. install Terraform
- 2. clone repository
- 3. go to folder DFW-Main
- 4. create a terraform.tfvars file for your secrets
- 5. initialize Terraform
- 6. plan and/or apply
+ 3. create a terraform.tfvars file for your secrets
+ 4. initialize Terraform
+ 5. plan and/or apply
+ 6. terraform plan and apply
  7. fill all groups
+
 
 # Prerequisites
 
 1. Terraform
 2. NSX-T
-3. Horizon
 
 # Build & Run
 
@@ -48,6 +35,7 @@ First of all, all my test ran at a lab platform… Use following code at your ow
 
 In this repository I created a automated Horizon Whitelist Firewall Ruleset, which can be used with
 Terraform and VMC on AWS.
+With some small changes it should work also for a normal onprem NSX-T deployment. If you have questions about this, please let me know!
 
 It only apply Horizon related Services, groups and Distributed Firewall Sections and Rules.
 
