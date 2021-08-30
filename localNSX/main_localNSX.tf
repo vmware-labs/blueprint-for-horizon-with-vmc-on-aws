@@ -1,15 +1,20 @@
 provider "nsxt" {
-    host                 = var.host
-    vmc_token            = var.vmc_token
-    allow_unverified_ssl = true
-    enforcement_point    = "vmc-enforcementpoint"
- }
+  host                  = var.host
+  username              = var.username
+  password              = var.password
+  allow_unverified_ssl  = true
+  max_retries           = 10
+  retry_min_delay       = 500
+  retry_max_delay       = 5000
+  retry_on_status_codes = [429]
+}
+
 
 ###################### creating Network Segments ######################
 ###################### can be outcommented "/* */" or edited ######################
 
 data "nsxt_policy_transport_zone" "TZ" {
-  display_name = "vmc-overlay-tz"
+  display_name = "overlay-tz"
 }
 
 resource "nsxt_policy_segment" "ManagementHorizon" {
@@ -629,7 +634,6 @@ resource "nsxt_policy_group" "vROPS" {
   description  = "Created from Terraform vROPS"
   domain       = "cgw"
 }
-
 // creating Group for Workspace1_Connector:
 resource "nsxt_policy_group" "Workspace1_Connector" {
   display_name = "Workspace1_Connector"
