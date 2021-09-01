@@ -24,7 +24,7 @@ Explanation can be found here: https://securefever.com/blog/terraform-blueprint-
 First of all, all my test ran at a lab platform… Use following code at your own risk, I won't be responsible for any issues you may run into. Thanks!
 
 In this repository I created a automated distributed Firewall Ruleset for a Horizon Environment, which can be used with
-Terraform on VMC on AWS or local NSX-T.
+Terraform on VMware Cloud or local installed NSX-T.
 
 It only apply Horizon related Services, groups and Distributed Firewall Sections and Rules.
 
