@@ -4,16 +4,6 @@
 
 Explanation can be found here: https://securefever.com/blog/terraform-blueprint-for-a-horizon7-ruleset-with-vmc-on-aws
 
-# Try it out
-Greenfield!
- 1. install Terraform
- 2. clone repository
- 3. create a terraform.tfvars file for your secrets
- 4. initialize Terraform
- 5. plan and/or apply
- 6. terraform plan and apply
- 7. fill all groups
-
 
 # Prerequisites
 
@@ -27,18 +17,18 @@ Greenfield!
 3. create a terraform.tfvars file for your secrets
 4. initialize Terraform
 5. plan and/or apply
-6. make changes
+6. fill your groups and make your changes
 
 # Documentation
 
 First of all, all my test ran at a lab platform… Use following code at your own risk, I won't be responsible for any issues you may run into. Thanks!
 
-In this repository I created a automated Horizon whitelist Firewall Ruleset, which can be used with
+In this repository I created a automated distributed Firewall Ruleset for a Horizon Environment, which can be used with
 Terraform on VMC on AWS or local NSX-T.
 
 It only apply Horizon related Services, groups and Distributed Firewall Sections and Rules.
 
-This code should support you to build a whitelist Firewall Horizon Plattform or get a idea how you can secure your Horizon Environment.
+This code should support you to build a secured and least privilege Horizon Plattform or get a idea how you can secure your Horizon Environment.
 
 To get familiar with VMC and VMC NSX-T I highly recommend to take a look on the Blog posts from Nicolas Vibert:
 https://nicovibert.com
