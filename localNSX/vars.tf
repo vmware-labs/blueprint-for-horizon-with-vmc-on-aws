@@ -1,6 +1,13 @@
+
 variable "host" {
-    description = "VMC NSX-T REVERSE PROXY URL"
+    description = "Local NSX-T Manager"
 }
-variable "vmc_token" {
-    description = "VMC Token"
+
+variable "username" {
+    description = "User Account"
+}
+
+
+variable "password" {
+    description = "User Account Password"
 }
