@@ -765,7 +765,7 @@ resource "nsxt_policy_security_policy" "DNS" {
 resource "nsxt_policy_security_policy" "NTP" {
   domain       = "cgw"
   display_name = "NTP Service"
-  description  = "Terraform DNS Ruleset"
+  description  = "Terraform NTP Ruleset"
   category     = "Infrastructure"
 
   rule {
