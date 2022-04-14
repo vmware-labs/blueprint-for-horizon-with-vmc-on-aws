@@ -673,7 +673,7 @@ resource "nsxt_policy_group" "RFC_1918" {
 
     criteria {
     ipaddress_expression {
-      ip_addresses = ["192.168.0.0/16", "172.16.0.0/16", "10.0.0.0/8"]
+      ip_addresses = ["192.168.0.0/16", "172.16.0.0/12", "10.0.0.0/8"]
     }
   }
 }
